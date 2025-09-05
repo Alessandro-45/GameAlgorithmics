@@ -13,11 +13,12 @@ pos_ini_enemy_y = 600
 velocidad_player = 10
 velocidad_enemy = 8
 
-ancho_personaje = 20
-alto_personaje = 20
+ancho_personaje = 70
+alto_personaje = 70
 image_personaje = 'pacman.jpg'
 image_enemy = 'enemy.png'
-
+background = pg.transform.scale(pg.image.load('Background.jpg'), (Ancho_ventana, Alto_ventana))
+image_loser = pg.transform.scale(pg.image.load('victory.jpg'), (Ancho_ventana, Alto_ventana))
 
 
 
