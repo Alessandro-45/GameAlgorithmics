@@ -9,7 +9,14 @@ pg.init()
 personaje = objetos.Personaje(constantes.image_personaje, 
                               constantes.ancho_personaje,
                               constantes.alto_personaje,
-                              10, 10, 15)
+                              constantes.pos_ini_player_x, constantes.pos_ini_player_y, constantes.velocidad_player)
+
+enemy = objetos.Enemy(constantes.image_enemy,
+                      constantes.ancho_personaje,
+                      constantes.alto_personaje,
+                      constantes.pos_ini_enemy_x,
+                      constantes.pos_ini_enemy_y,
+                      constantes.velocidad_player)
 clock = pg.time.Clock()
 
 
@@ -24,7 +31,8 @@ while run == True:
             run = False
     personaje.dibujar()
     personaje.update()
-    
+    enemy.dibujar()
+    enemy.move()
 
     pg.display.flip()
     

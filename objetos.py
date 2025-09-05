@@ -41,3 +41,19 @@ class Personaje(GameObject):
         if keys[pg.K_0]:
             self.posx, self.posy = 0, 0
         
+class Enemy(GameObject):
+
+    def move(self):
+
+        if constantes.dir_enemy == 'right':
+
+            self.posx += self.speed
+            
+            if self.posx >= constantes.Ancho_ventana - 5:
+                constantes.dir_enemy = 'left'
+        else:
+
+            self.posx -= self.speed
+            
+            if self.posx <= 3:
+                constantes.dir_enemy = 'right'
