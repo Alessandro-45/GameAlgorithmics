@@ -27,15 +27,31 @@ enemy = objetos.Enemy(constantes.image_enemy,
                       constantes.pos_ini_enemy_x,
                       constantes.pos_ini_enemy_y,
                       constantes.velocidad_player)
+
+meta = objetos.GameObject(constantes.image_finish, 
+                          constantes.ancho_personaje,
+                          constantes.alto_personaje,
+                          constantes.Ancho_ventana - 50,
+                          constantes.Alto_ventana - 50,
+                          0
+                          )
+
 color1, color2, color3 = 163, 73, 164
+
 wall1 = objetos.Wall(color1, color2, color3, 50, 30,
                      constantes.Ancho_ventana - 400,
                      15)
+
 wall2 = objetos.Wall(color1, color2, color3, 50, 50,
                      constantes.Ancho_ventana - 400,
                      15)
 
-walls = [wall1, wall2]
+wall3 = objetos.Wall(color1, color2,color3, constantes.Ancho_ventana/2,
+                    constantes.Alto_ventana/2,
+                    15,
+                    500)
+
+walls = [wall1, wall2, wall3]
 
 
 clock = pg.time.Clock()
@@ -51,19 +67,23 @@ while run == True:
         if eventos.type == pg.QUIT:
             run = False
     if not finish:
-        objetos.Ventana.fill((255, 255, 255))
+        objetos.Ventana.blit(constantes.background, (0,0))
+        meta.dibujar()
         personaje.dibujar()
         personaje.update()
         enemy.dibujar()
         enemy.move()
         wall1.draw_wall()
         wall2.draw_wall()
+        wall3.draw_wall()
 
         if detectar_colision(personaje, enemy) or colision_con_pared(personaje, walls):
             objetos.Ventana.fill((163, 73, 164))
             objetos.Ventana.blit(constantes.image_loser, (0,0))
             finish = True
-
+        if detectar_colision(personaje, meta):
+            objetos.Ventana.fill((163, 173, 164))
+            objetos.Ventana.blit(constantes.image_victory, (0,0))
     pg.display.update()
 pg.quit()
 
