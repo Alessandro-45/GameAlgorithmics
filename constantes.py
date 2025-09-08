@@ -1,6 +1,6 @@
 import pygame as pg
 
-Ancho_ventana = 800
+Ancho_ventana = 1000
 Alto_ventana = 800
 nombre_juego = 'Mi primer juegazo. Autor: Neptali Ramirez'
 
@@ -18,8 +18,7 @@ alto_personaje = 70
 image_personaje = 'pacman.jpg'
 image_enemy = 'enemy.png'
 background = pg.transform.scale(pg.image.load('Background.jpg'), (Ancho_ventana, Alto_ventana))
-image_loser = pg.transform.scale(pg.image.load('victory.jpg'), (Ancho_ventana, Alto_ventana))
+image_loser = pg.transform.scale(pg.image.load('loser.webp'), (Ancho_ventana, Alto_ventana))
+image_victory = pg.transform.scale(pg.image.load('victory.jpg'), (Ancho_ventana, Alto_ventana))
 
-
-
-
+image_finish = 'finish.webp'
