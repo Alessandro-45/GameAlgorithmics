@@ -11,7 +11,7 @@ pos_ini_enemy_x = 600
 pos_ini_enemy_y = 600
 
 velocidad_player = 10
-velocidad_enemy = 8
+velocidad_enemy = 3  # Reducida para mejor control con gravedad
 
 ancho_personaje = 70
 alto_personaje = 70
@@ -22,3 +22,7 @@ image_loser = pg.transform.scale(pg.image.load('loser.webp'), (Ancho_ventana, Al
 image_victory = pg.transform.scale(pg.image.load('victory.jpg'), (Ancho_ventana, Alto_ventana))
 
 image_finish = 'finish.webp'
+
+# Nuevas constantes para el mundo expandido
+MUNDO_ANCHO = Ancho_ventana * 4  # 4 pantallas de ancho
+META_POSX = Ancho_ventana * 3 - 100  # Meta después de 3 shifts
